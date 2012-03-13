@@ -7,6 +7,7 @@ return array(
         'definition' => array('class' => array(
             'PhlyContact\ContactForm' => array(
                 '__construct' => array(
+                    'required' => true,
                     'captchaAdapter' => array(
                         'required' => true,
                         'type'     => 'Zend\Captcha\Adapter',
@@ -47,7 +48,7 @@ return array(
             ),
         )),
         'instance' => array(
-            'PhlyContact\Controller\Controller' => array('parameters' => array(
+            'PhlyContact\Controller\ContactController' => array('parameters' => array(
                 'form'      => 'PhlyContact\ContactForm',
             )),
             'Zend\View\Resolver\TemplateMapResolver' => array('parameters' => array(

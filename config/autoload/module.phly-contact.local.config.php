@@ -1,11 +1,10 @@
 <?php
 return array('di' => array(
     'preferences' => array(
-        'Zend\Captcha\Adapter' => 'Zend\Captcha\Dumb',
         'Zend\Mail\Transport'  => 'Zend\Mail\Transport\File',
     ),
     'instance' => array(
-        'contact' => array('parameters' => array(
+        'PhlyContact\Controller\ContactController' => array('parameters' => array(
             'transport' => 'Zend\Mail\Transport\File',
             'message'   => 'Zend\Mail\Message',
         )),
@@ -13,7 +12,7 @@ return array('di' => array(
             'captchaAdapter' => 'Zend\Captcha\Dumb',
         )),
         'Zend\Mail\Transport\FileOptions' => array('parameters' => array(
-            'path' => 'data/',
+            'path' => sys_get_temp_dir(),
         )),
         'Zend\Mail\Message' => array('parameters' => array(
             'Zend\Mail\Message::addTo:emailOrAddressList' => 'me@mwop.net',

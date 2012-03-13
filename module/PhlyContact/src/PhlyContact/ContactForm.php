@@ -23,7 +23,7 @@ class ContactForm extends Form
         parent::__construct($captchaAdapter);
     }
 
-    public function setCaptchaAdapter(CaptchaAdapter $captcha)
+    protected function setCaptchaAdapter(CaptchaAdapter $captcha)
     {
         $this->captchaAdapter = $captcha;
     }

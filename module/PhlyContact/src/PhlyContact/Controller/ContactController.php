@@ -1,7 +1,8 @@
 <?php
 namespace PhlyContact\Controller;
 
-use Zend\Mail\Transport,
+use PhlyContact\ContactForm,
+    Zend\Mail\Transport,
     Zend\Mail\Message as Message,
     Zend\Mvc\Controller\ActionController,
     Zend\View\Model\ViewModel;
@@ -73,12 +74,13 @@ class ContactController extends ActionController
     {
         $headers = $this->request->headers();
         if (!$headers->has('Referer')
-            || !preg_match('#/contact/process$#',
+            || !preg_match('#/contact$#',
                   $headers->get('Referer')->getFieldValue())
         ) {
             $this->response->setStatusCode(302);
             $this->response->headers()
                  ->addHeaderLine('Location', '/contact');
+            return $this->response;
         }
 
         return array();
