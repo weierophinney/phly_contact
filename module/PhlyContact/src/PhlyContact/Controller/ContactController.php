@@ -36,9 +36,7 @@ class ContactController extends ActionController
     public function processAction()
     {
         if (!$this->request->isPost()) {
-            $this->response->setStatusCode(302);
-            $this->response->headers()
-                 ->addHeaderLine('Location', '/contact');
+            return $this->redirect()->toRoute('contact');
         }
         $post = $this->request->post()->toArray();
         $form = $this->form;
@@ -77,10 +75,7 @@ class ContactController extends ActionController
             || !preg_match('#/contact$#',
                   $headers->get('Referer')->getFieldValue())
         ) {
-            $this->response->setStatusCode(302);
-            $this->response->headers()
-                 ->addHeaderLine('Location', '/contact');
-            return $this->response;
+            return $this->redirect()->toRoute('contact');
         }
 
         return array();
