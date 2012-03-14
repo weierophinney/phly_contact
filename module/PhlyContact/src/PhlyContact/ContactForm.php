@@ -61,6 +61,8 @@ class ContactForm extends Form
         $this->addElement('textarea', 'body', array(
             'label'    => 'Your message:',
             'required' => true,
+            'cols'     => 80,
+            'rows'     => 10,
         ));
 
         $this->addElement('captcha', 'captcha', array(
